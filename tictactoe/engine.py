@@ -15,8 +15,8 @@ class Engine:
     def minimax(self, board: Board, ai_turn: bool, depth: int, alpha: float,
                 beta: float) -> tuple:
         available_moves = board.empty_squares
-        if len(available_moves) == board.size**2:
-            return 0, random.choice(list(range(board.size**2)))
+        if len(available_moves) == board.size ** 2:
+            return 0, random.choice(list(range(board.size ** 2)))
         if board.is_gameover() or depth >= self.level:
             return self.evaluate_board(board, depth), None
 
@@ -51,9 +51,9 @@ class Engine:
 
     def evaluate_board(self, board: Board, depth: int) -> Score:
         if board.winner() == self.ai:
-            return board.size**2 - depth
+            return board.size ** 2 - depth
         elif board.winner() == self.foe:
-            return -1 * board.size**2 - depth
+            return -1 * board.size ** 2 - depth
         return 0
 
     def evaluate_best_move(self, board: Board) -> Square:
